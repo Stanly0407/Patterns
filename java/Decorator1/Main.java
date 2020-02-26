@@ -1,7 +1,13 @@
 package Decorator1;
 
+import Delegation1.CompanyFeedback1;
+import Delegation1.CompanyFeedback2;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Your order:");
         BaseService BaseService1 = new Service_1();
         System.out.print(BaseService1.getNameService() + ": ");
         System.out.println(BaseService1.getPrice() + " BYN.");
@@ -21,6 +27,22 @@ public class Main {
         BaseService789 = new NotaryCertification(BaseService789);
         System.out.print(BaseService789.getNameService() + ": ");
         System.out.println(BaseService789.getPrice() + " BYN.");
+
+        CompanyFeedback1 companyFeedback1 = new CompanyFeedback1();
+        CompanyFeedback2 companyFeedback2 = new CompanyFeedback2();
+
+        System.out.println( "\nPlease, estimate the quality of our services: ok / bad.");
+        Scanner scanner = new Scanner(System.in);
+        String actionType = scanner.nextLine();
+
+
+        if (actionType.equalsIgnoreCase("ok")) {
+            companyFeedback1.sendComment();
+        }  else if (actionType.equalsIgnoreCase("bad")) {
+            companyFeedback2.sendComment();
+        } else {
+            System.out.println("...incorrect response, please, restart \"Main\".");
+        }
 
     }
 }

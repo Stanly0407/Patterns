@@ -16,3 +16,4 @@ public class NotaryCertification extends Decorator {
         return baseService.getPrice() + 28;
     }
 }
+
